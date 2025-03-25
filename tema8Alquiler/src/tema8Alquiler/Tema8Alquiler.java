@@ -311,7 +311,6 @@ public class Tema8Alquiler {
 					insUsu.setString(2, edad);
 					insUsu.setString(3, cuenta);
 					insUsu.executeUpdate();
-					insUsu.close();
 					JOptionPane.showMessageDialog(frmAlquiler, "Se ha añadido el usuario");
 					Statement muestra = con.createStatement();
 					ResultSet visualizar=muestra.executeQuery("SELECT * FROM usuarios WHERE id !=0");
@@ -324,6 +323,7 @@ public class Tema8Alquiler {
 						row[3] = visualizar.getString("cuenta_banco");
 						usuarios.addRow(row);
 						con.close();
+						insUsu.close();
 					}
 				}catch (SQLException ex) {
 					JOptionPane.showMessageDialog(frmAlquiler, ex.getMessage(),"Advertencia",JOptionPane.ERROR_MESSAGE);
