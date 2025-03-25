@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 import javax.swing.JFrame;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -361,5 +362,14 @@ public class Tema8Alquiler {
 		}catch (SQLException e) {
 			JOptionPane.showMessageDialog(frmAlquiler, e.getMessage(),"Advertencia",JOptionPane.ERROR_MESSAGE);
 		}
+		DefaultTableCellRenderer centrador = new DefaultTableCellRenderer();	//Las filas de aquí abajo nos permite centrar las celdas
+		centrador.setHorizontalAlignment(JLabel.CENTER);
+		tableUsuario.getColumnModel().getColumn(0).setCellRenderer(centrador);
+		tableUsuario.getColumnModel().getColumn(1).setCellRenderer(centrador);
+		tableUsuario.getColumnModel().getColumn(2).setCellRenderer(centrador);
+		tableUsuario.getTableHeader().setResizingAllowed(false);
+		tableBicis.getColumnModel().getColumn(0).setCellRenderer(centrador);
+		tableBicis.getColumnModel().getColumn(1).setCellRenderer(centrador);
+		tableBicis.getTableHeader().setResizingAllowed(false);	//Esto evita que el usuario pueda redimensionar las columnas
 	}
 }
