@@ -322,8 +322,6 @@ public class Tema8Alquiler {
 						row[2] = visualizar.getInt("edad");
 						row[3] = visualizar.getString("cuenta_banco");
 						usuarios.addRow(row);
-						con.close();
-						insUsu.close();
 					}
 				}catch (SQLException ex) {
 					JOptionPane.showMessageDialog(frmAlquiler, ex.getMessage(),"Advertencia",JOptionPane.ERROR_MESSAGE);
